@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import Hero from "./components/hero";
+import ProductPage from "./components/productPage";
 
 const App = () => {
   return (
@@ -14,7 +15,8 @@ const App = () => {
       <Header />
       <main className="py-3">
         <Container>
-          <Hero />
+          <Route path="/" exact component={Hero} />
+          <Route path="/product/:id" component={ProductPage} />
         </Container>
       </main>
       <Footer />
