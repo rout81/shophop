@@ -9,7 +9,7 @@ import Image from "react-bootstrap/Image";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { addToCart } from "../actions/cartAction";
+import { addToCart, removeFromCart } from "../actions/cartAction";
 
 const CartPage = ({ match, location, history }) => {
   const productId = match.params.id;
@@ -21,7 +21,9 @@ const CartPage = ({ match, location, history }) => {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
-  const removeFromCartHandler = (id) => console.log("remove");
+  const removeFromCartHandler = (id) => {
+    dispatch(removeFromCart(id));
+  };
 
   const checkoutHandler = () => {
     history.push("/login?redirect=shipping");
@@ -74,7 +76,7 @@ const CartPage = ({ match, location, history }) => {
                     <Button
                       type="button"
                       variant="light"
-                      onClick={removeFromCartHandler}
+                      onClick={() => removeFromCartHandler(item.product)}
                     >
                       <i className="fas fa-trash"></i>
                     </Button>
