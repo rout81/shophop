@@ -8,6 +8,7 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import Hero from "./components/hero";
 import ProductPage from "./components/productPage";
+import CartPage from "./components/CartPage";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Container>
           <Route path="/" exact component={Hero} />
           <Route path="/product/:id" component={ProductPage} />
+          <Route path="/cart/:id?" component={CartPage} />
         </Container>
       </main>
       <Footer />
